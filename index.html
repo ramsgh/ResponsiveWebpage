@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- 
+    ==========================================================================
+    1. VIEWPORT META TAG (Essential for Responsive Web Design)
+    - width=device-width: Sets page width to follow screen width of the device
+    - initial-scale=1.0: Sets initial zoom level when page is first loaded
+    ==========================================================================
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Web Design Showcase</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Live Active Breakpoint Indicator Badge -->
+  <div class="breakpoint-badge" id="badge">Active Viewport</div>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="logo"> ResponsiveHub</div>
+      <nav class="nav-links">
+        <a href="#art-direction">Art Direction</a>
+        <a href="#srcset">Srcset Images</a>
+        <a href="#typography">Clamp Typography</a>
+        <a href="#grid">Responsive Grid</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- HERO SECTION: Fluid Typography + Clamp -->
+    <section class="hero-section">
+      <h1 class="hero-title">Mastering Responsive Design</h1>
+      <p class="hero-subtitle">A mobile-first blueprint covering breakpoints, clamp typography, and adaptive media.</p>
+    </section>
+
+    <!-- CONCEPT 1: RESPONSIVE IMAGES VIA <picture> (ART DIRECTION) -->
+    <section id="art-direction" class="demo-card">
+      <div class="card-header">
+        <h2>1. Responsive Images: <code>&lt;picture&gt;</code> Element (Art Direction)</h2>
+        <p>The <code>&lt;picture&gt;</code> element swaps entirely different images based on media query breakpoints.</p>
+      </div>
+
+      <div class="media-container">
+        <picture>
+          <!-- Desktop Image (min-width: 1024px) -->
+          <source media="(min-width: 1024px)" srcset="assets/hero-desktop.svg">
+          <!-- Tablet Image (min-width: 768px) -->
+          <source media="(min-width: 768px)" srcset="assets/hero-tablet.svg">
+          <!-- Default Mobile Fallback Image -->
+          <img src="assets/hero-mobile.svg" alt="Art Direction Hero Demo" class="responsive-img">
+        </picture>
+      </div>
+      <div class="code-explain">
+        <strong>How it works:</strong> Resize your browser window across <code>768px</code> and <code>1024px</code> to see the image artwork change dynamically!
+      </div>
+    </section>
+
+
+    <!-- CONCEPT 2: RESPONSIVE IMAGES VIA srcset AND sizes (RESOLUTION SWITCHING) -->
+    <section id="srcset" class="demo-card">
+      <div class="card-header">
+        <h2>2. Responsive Images: <code>srcset</code> & <code>sizes</code> (Resolution Switching)</h2>
+        <p>Serves different image resolutions of the <em>same</em> artwork to save bandwidth on smaller devices.</p>
+      </div>
+
+      <div class="media-container">
+        <img 
+          src="assets/card-sm.svg" 
+          srcset="assets/card-sm.svg 400w,
+                  assets/card-md.svg 800w,
+                  assets/card-lg.svg 1200w"
+          sizes="(min-width: 1024px) 800px,
+                 (min-width: 768px) 600px,
+                 100vw"
+          alt="Resolution Switching Demo"
+          class="responsive-img"
+        >
+      </div>
+      <div class="code-explain">
+        <strong>How it works:</strong> The browser automatically chooses <code>400w</code>, <code>800w</code>, or <code>1200w</code> based on the device display density and screen layout width.
+      </div>
+    </section>
+
+
+    <!-- CONCEPT 3: RESPONSIVE TYPOGRAPHY WITH CSS clamp() -->
+    <section id="typography" class="demo-card">
+      <div class="card-header">
+        <h2>3. Responsive Typography using CSS <code>clamp()</code></h2>
+        <p>No media queries required for smooth, fluid font scaling!</p>
+      </div>
+
+      <div class="clamp-demo-box">
+        <h3 class="clamp-heading">Fluid Title: <code>clamp(1.5rem, 4vw + 1rem, 3.2rem)</code></h3>
+        <p class="clamp-body">This text smoothly grows and shrinks as you drag your window size,
+           respecting defined minimum and maximum bounds so text is never too tiny or overly huge.
+          Keep adding new text to see how it wraps and scales fluidly across different viewport widths!
+          </p>
+      </div>
+    </section>
+
+
+    <!-- CONCEPT 4: MOBILE-FIRST GRID & BREAKPOINTS -->
+    <section id="grid" class="demo-card">
+      <div class="card-header">
+        <h2>4. Mobile-First Grid Layout & Breakpoints</h2>
+        <p>Starts as 1 column on mobile, expands to 2 columns on <code>480px</code>, 3 columns on <code>768px</code>, and 4 columns on <code>1024px</code>.</p>
+      </div>
+
+      <div class="responsive-grid">
+        <div class="grid-item">
+          <div class="item-badge">Card 1</div>
+          <h3>Mobile Default</h3>
+          <p>Stacked 1-column layout for small mobile screens (&lt; 480px).</p>
+        </div>
+        <div class="grid-item">
+          <div class="item-badge">Card 2</div>
+          <h3>Large Mobile</h3>
+          <p>Unlocks 2-column layout when viewport width reaches <code>480px</code>.</p>
+        </div>
+        <div class="grid-item">
+          <div class="item-badge">Card 3</div>
+          <h3>Tablet View</h3>
+          <p>Expands to 3 columns when viewport reaches <code>768px</code>.</p>
+        </div>
+        <div class="grid-item">
+          <div class="item-badge">Card 4</div>
+          <h3>Desktop View</h3>
+          <p>Expands to full 4-column layout when viewport reaches <code>1024px</code>.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>📐 Responsive Web Design Masterclass • Mobile-First Standards</p>
+    </div>
+  </footer>
+
+</body>
+</html>
